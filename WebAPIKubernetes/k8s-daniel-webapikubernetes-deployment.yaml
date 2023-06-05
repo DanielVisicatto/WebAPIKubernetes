@@ -1,0 +1,25 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapikubernetes-dep
+  namespace: k8s-demo-daniel-visicatto
+spec:
+  selector:
+    matchLabels:
+      app: webapikubernetes
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webapikubernetes
+    spec:
+      containers:
+        - name: webapikubernetes
+          image: xxxxxdpxxxxx/webapikubernetes
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_URLS
+              value: "http://*:80"
+

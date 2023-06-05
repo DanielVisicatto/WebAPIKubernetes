@@ -1,0 +1,13 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: webapikubernetes-service
+  namespace: k8s-demo-daniel-visicatto
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: webapikubernetes
